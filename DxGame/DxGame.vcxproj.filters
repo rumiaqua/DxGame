@@ -39,10 +39,10 @@
     <ClCompile Include="Sources\Math\Math.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\Matrix\Matrix.cpp">
+    <ClCompile Include="Sources\Quaternion\Quaternion.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\Quaternion\Quaternion.cpp">
+    <ClCompile Include="Sources\Matrix\Matrix.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -80,10 +80,10 @@
     <ClInclude Include="Sources\DxLibConvert.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Sources\Matrix\Matrix.hpp">
+    <ClInclude Include="Sources\Quaternion\Quaternion.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Sources\Quaternion\Quaternion.hpp">
+    <ClInclude Include="Sources\Matrix\Matrix.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
