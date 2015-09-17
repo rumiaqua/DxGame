@@ -24,6 +24,7 @@
     <ClCompile Include="Sources\main.cpp" />
     <ClCompile Include="Sources\Math\Math.cpp" />
     <ClCompile Include="Sources\Matrix\Matrix.cpp" />
+    <ClCompile Include="Sources\Player.cpp" />
     <ClCompile Include="Sources\Quaternion\Quaternion.cpp" />
     <ClCompile Include="Sources\String\String.cpp" />
     <ClCompile Include="Sources\Vector2\Vector2.cpp" />
@@ -33,6 +34,7 @@
   <ItemGroup>
     <ClInclude Include="Sources\DxLibConvert.hpp" />
     <ClInclude Include="Sources\Game\Game.hpp" />
+    <ClInclude Include="Sources\Player.hpp" />
     <ClInclude Include="Sources\IGameFrame\IGameFrame.hpp" />
     <ClInclude Include="Sources\Math\Math.hpp" />
     <ClInclude Include="Sources\Matrix\Matrix.hpp" />
@@ -44,6 +46,10 @@
     <ClInclude Include="Sources\Vector2\Vector2.hpp" />
     <ClInclude Include="Sources\Vector3\Vector3.hpp" />
     <ClInclude Include="Sources\Vector4\Vector4.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="3DAction.txt" />
+    <Text Include="Temp.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9106A227-C5F1-4570-99CB-320BD7A99850}</ProjectGuid>
@@ -135,6 +141,8 @@
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;$(ProjectDir)\Sources;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>PreDefine.hpp;PreInclude.hpp;</ForcedIncludeFiles>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -174,6 +182,8 @@
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;$(ProjectDir)\Sources;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>PreDefine.hpp;PreInclude.hpp;</ForcedIncludeFiles>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

@@ -45,6 +45,9 @@
     <ClCompile Include="Sources\Matrix\Matrix.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Sources\Player.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sources\Game\Game.hpp">
@@ -86,5 +89,12 @@
     <ClInclude Include="Sources\Matrix\Matrix.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Sources\Player.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="3DAction.txt" />
+    <Text Include="Temp.txt" />
   </ItemGroup>
 </Project>

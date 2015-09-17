@@ -6,31 +6,22 @@
 
 char buffer[256];
 
-/*// ステージの初期化処理
-void Stage_Initialize(void)
-{
-// ステージモデルの読み込み
-stg.ModelHandle = MV1LoadModel("ColTestStage.mqo");
-
-// モデル全体のコリジョン情報のセットアップ
-MV1SetupCollInfo(stg.ModelHandle, -1);
-}
-
-// ステージの後始末処理
-void Stage_Terminate(void)
-{
-// ステージモデルの後始末
-MV1DeleteModel(stg.ModelHandle);
-}*/
-
 int handle;
 
+int stageHandle;
+
 MATRIX Default;
+
+aqua::Vector3 Position = aqua::Vector3::Zero;
 
 void Game::Initialize()
 {
 	// モデル読み込み
-	handle = MV1LoadModel(L"DxChara.x");
+	handle = MV1LoadModel(L"kabotya.mqo");
+
+	stageHandle = MV1LoadModel(L"ColTestStage.mqo");
+
+	MV1SetupCollInfo(stageHandle);
 
 	// Ｚバッファを有効にする
 	SetUseZBuffer3D(TRUE);
@@ -38,13 +29,89 @@ void Game::Initialize()
 	// Ｚバッファへの書き込みを有効にする
 	SetWriteZBuffer3D(TRUE);
 
-	Default = GetCameraProjectionMatrix();
+	Default = GetCameraViewMatrix();
+
+	Position = { 0.0f, 1000.0f, 0.0f };
 }
 
 void Game::Update()
 {
 	// キー入力の取得
 	GetHitKeyStateAll(buffer);
+
+	static const float Speed = 50.0f;
+
+	if (buffer[KEY_INPUT_A])
+	{
+		Position.x -= Speed;
+	}
+	if (buffer[KEY_INPUT_D])
+	{
+		Position.x += Speed;
+	}
+
+	if (buffer[KEY_INPUT_W])
+	{
+		Position.z += Speed;
+	}
+	if (buffer[KEY_INPUT_S])
+	{
+		Position.z -= Speed;
+	}
+
+	const VECTOR Start =
+		To(Position);
+	const VECTOR End =
+		To(Position + aqua::Vector3(0.0f, -10000.0f, 0.0f));
+
+	MV1_COLL_RESULT_POLY result =
+		MV1CollCheck_Line(stageHandle, -1,
+		Start,
+		End);
+
+	if (result.HitFlag)
+	{
+		VECTOR pos =
+			VAdd(result.HitPosition, VGet(0.0f, 10.0f, 0.0f));
+		Position.x = pos.x;
+		Position.y = pos.y;
+		Position.z = pos.z;
+	}
+}
+
+void LookAt(const aqua::Vector3& eye, const aqua::Vector3& at, const aqua::Vector3& up)
+{
+	SetCameraPositionAndTargetAndUpVec(
+		To(eye), To(at), To(up));
+	return;
+
+	auto Current = GetCameraViewMatrix();
+
+	aqua::Matrix matrix = aqua::Matrix::Identity();
+
+	matrix = matrix.Translated(-eye);
+
+	auto Dir = (at - eye).Normalized();
+
+	auto Left = up.Cross(Dir);
+
+	matrix.m[0][0] = Left.x;
+	matrix.m[1][0] = Left.y;
+	matrix.m[2][0] = Left.z;
+
+	auto Up = Dir.Cross(Left);
+
+	matrix.m[0][1] = Up.x;
+	matrix.m[1][1] = Up.y;
+	matrix.m[2][1] = Up.z;
+
+	matrix.m[0][2] = Dir.x;
+	matrix.m[1][2] = Dir.y;
+	matrix.m[2][2] = Dir.z;
+
+	//matrix = matrix.Inverse();
+
+	SetCameraViewMatrix(To(matrix));
 }
 
 void Game::Render()
@@ -56,34 +123,46 @@ void Game::Render()
 	SetWindowSize(Width, Height);
 
 	// 透視射影行列
-	SetupCamera_ProjectionMatrix(Default);
+	SetupCamera_Perspective(Math::Radian * 60.0f);
+	SetCameraNearFar(41.5692215f, 20415.6914f);
 
-	SetupCamera_Perspective(Math::ToRadian(60.0f));
-	auto perspective = GetCameraProjectionMatrix();
-
-	aqua::Matrix m = DirectX::XMMatrixPerspectiveFovLH(
-		Math::ToRadian(45.0f), (float)Width / Height, 0.1f, 1000.0f);
-	SetupCamera_ProjectionMatrix(To(m));
-	auto proj = GetCameraProjectionMatrix();
-
-	/*
+	// カメラ
 	aqua::Matrix matrix = aqua::Matrix::Identity();
-	matrix = matrix.Translated(0.0f, 0.0f, 10.0f);
-	SetCameraViewMatrix(To(matrix));*/
+	matrix = matrix.Translated(0.0f,-100.0f, 1000.0f);
+	SetCameraViewMatrix(To(matrix));
 
-	auto view = GetCameraViewMatrix();
-	auto projection = GetCameraProjectionMatrix();
+	LookAt(
+	// { 0.0f, 500.0f, -1000.0f },
+	Position + aqua::Vector3(0.0f, 500.0f, -1000.0f),
+	Position,
+	{ 0.0f, 1.0f, 0.0f });
 
-	MV1SetPosition(handle, VGet(400.0f, -100.0f, 0.0f));
-	MV1DrawModel(handle);
+	// kabo
+	{
+		aqua::Matrix model = aqua::Matrix::Identity();
+		model = model.Scaled(0.3f);
+		model = model.RotatedY(Math::ToRadian(0.0f));
+		// model = model.Translated(200.0f, 0.0f, 0.0f);
+		model = model.Translated(Position);
+		MV1SetMatrix(handle, To(model));
+		MV1DrawModel(handle);
+	}
 
-	// ３Ｄ空間上に球を描画する
-	// DrawSphere3D({ 0, 0, 0 }, 1.0f, 32, GetColor(255, 0, 0), GetColor(255, 255, 255), TRUE);
+	// stage
+	{
+		aqua::Matrix model = aqua::Matrix::Identity();
+		model = model.Scaled(5.0f);
+		MV1SetMatrix(stageHandle, To(model));
+		MV1DrawModel(stageHandle);
+	}
 }
 
 void Game::Finalize()
 {
 	MV1DeleteModel(handle);
+	MV1DeleteModel(stageHandle);
+
+	MV1TerminateCollInfo(stageHandle);
 }
 
 bool Game::IsEnded() const
