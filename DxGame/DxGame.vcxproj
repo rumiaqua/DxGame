@@ -19,31 +19,61 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Sources\Collision\Collision.cpp" />
     <ClCompile Include="Sources\Game\Game.cpp" />
-    <ClCompile Include="Sources\IGameFrame\IGameFrame.cpp" />
+    <ClCompile Include="Sources\Input\Keyboard.cpp" />
+    <ClCompile Include="Sources\Input\Mouse.cpp" />
     <ClCompile Include="Sources\main.cpp" />
-    <ClCompile Include="Sources\Math\Math.cpp" />
-    <ClCompile Include="Sources\Matrix\Matrix.cpp" />
-    <ClCompile Include="Sources\Quaternion\Quaternion.cpp" />
-    <ClCompile Include="Sources\String\String.cpp" />
-    <ClCompile Include="Sources\Vector2\Vector2.cpp" />
-    <ClCompile Include="Sources\Vector3\Vector3.cpp" />
-    <ClCompile Include="Sources\Vector4\Vector4.cpp" />
+    <ClCompile Include="Sources\Scene\FadeState.cpp" />
+    <ClCompile Include="Sources\Utility\Debug.cpp" />
+    <ClCompile Include="Sources\Utility\Math.cpp" />
+    <ClCompile Include="Sources\Utility\Matrix.cpp" />
+    <ClCompile Include="Sources\Utility\Point2.cpp" />
+    <ClCompile Include="Sources\Utility\Point3.cpp" />
+    <ClCompile Include="Sources\Utility\Point4.cpp" />
+    <ClCompile Include="Sources\Scene\SceneManager.cpp" />
+    <ClCompile Include="Sources\Utility\SingletonFinalizer.cpp" />
+    <ClCompile Include="Sources\Utility\String.cpp" />
+    <ClCompile Include="Sources\Utility\Vector2.cpp" />
+    <ClCompile Include="Sources\Utility\Vector3.cpp" />
+    <ClCompile Include="Sources\Utility\Vector4.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Sources\DxLibConvert.hpp" />
+    <ClInclude Include="Sources\Collision\Capsule.hpp" />
+    <ClInclude Include="Sources\Collision\Collision.hpp" />
+    <ClInclude Include="Sources\Collision\IShape.hpp" />
+    <ClInclude Include="Sources\Collision\Line.hpp" />
+    <ClInclude Include="Sources\Collision\Sphere.hpp" />
     <ClInclude Include="Sources\Game\Game.hpp" />
-    <ClInclude Include="Sources\IGameFrame\IGameFrame.hpp" />
-    <ClInclude Include="Sources\Math\Math.hpp" />
-    <ClInclude Include="Sources\Matrix\Matrix.hpp" />
-    <ClInclude Include="Sources\Optional\Optional.hpp" />
-    <ClInclude Include="Sources\PreDefine.hpp" />
-    <ClInclude Include="Sources\PreInclude.hpp" />
-    <ClInclude Include="Sources\Quaternion\Quaternion.hpp" />
-    <ClInclude Include="Sources\String\String.hpp" />
-    <ClInclude Include="Sources\Vector2\Vector2.hpp" />
-    <ClInclude Include="Sources\Vector3\Vector3.hpp" />
-    <ClInclude Include="Sources\Vector4\Vector4.hpp" />
+    <ClInclude Include="Sources\Input\Keyboard.hpp" />
+    <ClInclude Include="Sources\Input\Mouse.hpp" />
+    <ClInclude Include="Sources\Scene\FadeState.hpp" />
+    <ClInclude Include="Sources\Scene\TestScene.hpp" />
+    <ClInclude Include="Sources\Scene\TestScene2.hpp" />
+    <ClInclude Include="Sources\Utility\Debug.hpp" />
+    <ClInclude Include="Sources\Utility\Math.hpp" />
+    <ClInclude Include="Sources\Utility\Matrix.hpp" />
+    <ClInclude Include="Sources\Utility\Memento.hpp" />
+    <ClInclude Include="Sources\Scene\IScene.hpp" />
+    <ClInclude Include="Sources\Scene\ISceneMediator.hpp" />
+    <ClInclude Include="Sources\Scene\IScenePtr.hpp" />
+    <ClInclude Include="Sources\Utility\MemoryCast.hpp" />
+    <ClInclude Include="Sources\Utility\Optional.hpp" />
+    <ClInclude Include="Sources\Utility\Point2.hpp" />
+    <ClInclude Include="Sources\Utility\Point3.hpp" />
+    <ClInclude Include="Sources\Utility\Point4.hpp" />
+    <ClInclude Include="Sources\Scene\Scene.hpp" />
+    <ClInclude Include="Sources\Scene\SceneManager.hpp" />
+    <ClInclude Include="Sources\Utility\SingletonFinalizer.hpp" />
+    <ClInclude Include="Sources\Utility\String.hpp" />
+    <ClInclude Include="Sources\Utility\ValueType.hpp" />
+    <ClInclude Include="Sources\Utility\Vector2.hpp" />
+    <ClInclude Include="Sources\Utility\Vector3.hpp" />
+    <ClInclude Include="Sources\Utility\Vector4.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sources\Scene\FadeIn.inl" />
+    <None Include="Sources\Scene\FadeOut.inl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9106A227-C5F1-4570-99CB-320BD7A99850}</ProjectGuid>
@@ -116,9 +146,10 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)\Sources;G:\Library\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\Sources;$(ProjectDir)\Sources\Utility;G:\Library\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <ForcedIncludeFiles>PreDefine.hpp;PreInclude.hpp</ForcedIncludeFiles>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -150,7 +181,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>G:\Library\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\Sources;$(ProjectDir)\Sources\Utility;G:\Library\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>

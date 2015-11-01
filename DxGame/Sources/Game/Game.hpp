@@ -1,18 +1,42 @@
 # pragma once
 
-# include "IGameFrame/IGameFrame.hpp"
+# include "Scene/SceneManager.hpp"
 
-class Game : public IGameFrame
+class Game
 {
+public:
+
+	virtual ~Game();
+
+public:
+
+	bool Run();
+
 private:
 
-	virtual void Initialize() override;
+	void Initialize();
 
-	virtual void Update() override;
+	void Update();
+	
+	void Render();
+	
+	void Finalize();
+	
+	bool IsEnd() const;
 
-	virtual void Render() override;
+	void Init() const;
 
-	virtual void Finalize() override;
+	void Process() const;
 
-	virtual bool IsEnded() const override;
+	void Flip() const;
+
+	void ClearScreen() const;
+
+	void ClearBackGround(int red, int green, int blue) const;
+
+	void SetWindowMode(bool isWindowed) const;
+
+private:
+
+	SceneManager m_sceneManager;
 };
