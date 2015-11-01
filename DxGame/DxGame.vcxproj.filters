@@ -1,176 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ソース ファイル">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="リソース ファイル">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClInclude Include="Sources\Collision\Capsule.hpp" />
+    <ClInclude Include="Sources\Collision\Collision.hpp" />
+    <ClInclude Include="Sources\Collision\IShape.hpp" />
+    <ClInclude Include="Sources\Collision\Line.hpp" />
+    <ClInclude Include="Sources\Collision\Sphere.hpp" />
+    <ClInclude Include="Sources\Game\Game.hpp" />
+    <ClInclude Include="Sources\Input\Keyboard.hpp" />
+    <ClInclude Include="Sources\Input\Mouse.hpp" />
+    <ClInclude Include="Sources\Scene\FadeState.hpp" />
+    <ClInclude Include="Sources\Scene\IScene.hpp" />
+    <ClInclude Include="Sources\Scene\ISceneMediator.hpp" />
+    <ClInclude Include="Sources\Scene\IScenePtr.hpp" />
+    <ClInclude Include="Sources\Scene\Scene.hpp" />
+    <ClInclude Include="Sources\Scene\SceneManager.hpp" />
+    <ClInclude Include="Sources\Scene\TestScene.hpp" />
+    <ClInclude Include="Sources\Scene\TestScene2.hpp" />
+    <ClInclude Include="Sources\Utility\Debug.hpp" />
+    <ClInclude Include="Sources\Utility\Math.hpp" />
+    <ClInclude Include="Sources\Utility\Matrix.hpp" />
+    <ClInclude Include="Sources\Utility\Memento.hpp" />
+    <ClInclude Include="Sources\Utility\MemoryCast.hpp" />
+    <ClInclude Include="Sources\Utility\Optional.hpp" />
+    <ClInclude Include="Sources\Utility\Point2.hpp" />
+    <ClInclude Include="Sources\Utility\Point3.hpp" />
+    <ClInclude Include="Sources\Utility\Point4.hpp" />
+    <ClInclude Include="Sources\Utility\SingletonFinalizer.hpp" />
+    <ClInclude Include="Sources\Utility\String.hpp" />
+    <ClInclude Include="Sources\Utility\ValueType.hpp" />
+    <ClInclude Include="Sources\Utility\Vector2.hpp" />
+    <ClInclude Include="Sources\Utility\Vector3.hpp" />
+    <ClInclude Include="Sources\Utility\Vector4.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Sources\Game\Game.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\main.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Scene\SceneManager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Input\Keyboard.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Utility\SingletonFinalizer.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Utility\Math.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Utility\Matrix.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Utility\Point2.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Utility\Point3.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Utility\Point4.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Utility\String.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Utility\Vector2.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Utility\Vector3.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Utility\Vector4.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Input\Mouse.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Utility\Debug.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Scene\FadeState.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\Collision\Collision.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
+    <ClCompile Include="Sources\Collision\Collision.cpp" />
+    <ClCompile Include="Sources\Game\Game.cpp" />
+    <ClCompile Include="Sources\Input\Keyboard.cpp" />
+    <ClCompile Include="Sources\Input\Mouse.cpp" />
+    <ClCompile Include="Sources\Scene\FadeState.cpp" />
+    <ClCompile Include="Sources\Scene\SceneManager.cpp" />
+    <ClCompile Include="Sources\Utility\Debug.cpp" />
+    <ClCompile Include="Sources\Utility\Math.cpp" />
+    <ClCompile Include="Sources\Utility\Matrix.cpp" />
+    <ClCompile Include="Sources\Utility\Point2.cpp" />
+    <ClCompile Include="Sources\Utility\Point3.cpp" />
+    <ClCompile Include="Sources\Utility\Point4.cpp" />
+    <ClCompile Include="Sources\Utility\SingletonFinalizer.cpp" />
+    <ClCompile Include="Sources\Utility\String.cpp" />
+    <ClCompile Include="Sources\Utility\Vector2.cpp" />
+    <ClCompile Include="Sources\Utility\Vector3.cpp" />
+    <ClCompile Include="Sources\Utility\Vector4.cpp" />
+    <ClCompile Include="Sources\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Sources\Game\Game.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Scene\SceneManager.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Scene\Scene.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Scene\IScenePtr.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Scene\ISceneMediator.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Scene\IScene.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Input\Keyboard.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Input\Mouse.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Utility\Memento.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Utility\SingletonFinalizer.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Utility\String.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Utility\Math.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Utility\Matrix.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Utility\Optional.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Utility\Point2.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Utility\Point3.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Utility\Point4.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Utility\ValueType.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Utility\Vector2.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Utility\Vector3.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Utility\Vector4.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Utility\MemoryCast.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Scene\TestScene.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Utility\Debug.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Scene\TestScene2.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Scene\FadeState.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Collision\Collision.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Collision\IShape.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Collision\Sphere.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Collision\Line.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Sources\Collision\Capsule.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Sources\Scene\FadeIn.inl">
-      <Filter>ヘッダー ファイル</Filter>
-    </None>
-    <None Include="Sources\Scene\FadeOut.inl">
-      <Filter>ヘッダー ファイル</Filter>
-    </None>
+    <None Include="Sources\Scene\FadeIn.inl" />
+    <None Include="Sources\Scene\FadeOut.inl" />
   </ItemGroup>
 </Project>

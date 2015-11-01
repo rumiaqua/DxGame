@@ -5,7 +5,7 @@
 
 # include <Windows.h>
 
-int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 	IShape* s1 = new Sphere(Vector3::Zero(), 10.0f);
 	IShape* s2 = new Sphere(Vector3::Zero(), 20.0f);
